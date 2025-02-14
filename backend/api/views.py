@@ -15,9 +15,10 @@ def api_home(request, *args, **kwargs):
     """
     serializer = ProductSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):
-        instance = serializer.save()
-        print(instance)
-    return Response(serializer.data)
+        #instance = serializer.save()
+        print(serializer.data)
+        return Response(serializer.data)
+    return Response({"Invalid": "not good data"}, status=400)
         #print(data)
         #data = dict(data )
         #json_data_str = json.dumps(data)
