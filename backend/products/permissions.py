@@ -16,17 +16,21 @@ class IsStaffEditorPermission(permissions.DjangoModelPermissions):
         if not request.user.is_staff:
             return False
         return super().has_permission(request, view)
+    
+    def has_object_permission(self, request, view, obj):
+        if not request.user.is_staff:
+            return False
+        return super().has_object_permission(request, view, obj)
 
+    #def has_permission(self, request, view):
     #    user = request.user
-    #    print(user.get_all_permissions())
-    #    if user.is_staff:
-    #        if user.has_perm("products.add_product"):
-    #            return True
-    #        if user.has_perm("products.delete_product"):
-    #            return True
-    #        if user.has_perm("products.change_product"):
-    #            return True
-    #        if user.has_perm("products.view_product"):
-    #            return True
-    #        return True
-    #    return True
+    #    if not user.is_staff:
+    #        return False  
+    #    
+    #    perms = [
+    #        "products.add_product",
+    #        "products.delete_product",
+    #        "products.change_product",
+    #        "products.view_product"
+    #    ]
+    #    return any(user.has_perm(perm) for perm in perms)
