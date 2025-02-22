@@ -19,16 +19,19 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields =  [ 'url',
-                    'edit_url',
-                    'email',
-                    'pk',
-                    'title',
-                    #'name',
-                    'content',
-                    'price',
-                    'sale_price',
-                    'my_discount']
+        fields =  [ 
+            'user',
+            'url',
+            'edit_url',
+            'email',
+            'pk',
+            'title',
+            #'name',
+            'content',
+            'price',
+            'sale_price',
+            'my_discount'
+            ]
 
     #def validate_title(self, value):
     #    request = self.context.get('request')
