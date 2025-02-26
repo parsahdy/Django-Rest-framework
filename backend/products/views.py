@@ -21,7 +21,6 @@ class ProductListCreateAPIView(
     def perform_create(self, serializer):
         # serializer.save(user=self.request.user)
         email = serializer.validated_data.pop('email')
-        print(email)
         title = serializer.validated_data.get('title')
         content = serializer.validated_data.get('content')
         if content is None: 
@@ -74,9 +73,9 @@ class ProductDeleteAPIView(
         super().perform_destroy(instance)
         
 
-class ProductListAPIView(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+#class ProductListAPIView(generics.ListAPIView):
+    #queryset = Product.objects.all()
+    #serializer_class = ProductSerializer
     
 
 
